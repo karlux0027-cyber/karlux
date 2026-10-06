@@ -75,8 +75,15 @@
     fetch(endpoint, { method: 'POST', body: data })
       .then(function (r) {
         if (!r.ok) { throw new Error('HTTP ' + r.status); }
-        form.reset();
-        status.textContent = 'Thank you. Your sign-up for KarLux Call Alerts was received. Reply STOP to any message at any time to opt out.';
+        var done = document.createElement('div');
+        done.className = 'card';
+        done.setAttribute('role', 'status');
+        done.innerHTML = '<h2 style="margin-top:0">Thank you. You are signed up.</h2>' +
+          '<p>Your sign-up for KarLux Call Alerts was received. You will get a text message when your AI receptionist takes a call or message for you.</p>' +
+          '<p>Message frequency varies. Msg &amp; data rates may apply. Reply STOP to any message to opt out, or HELP for help.</p>' +
+          '<p><a href="index.html">Back to the home page</a></p>';
+        form.parentNode.replaceChild(done, form);
+        done.scrollIntoView({ block: 'center' });
       })
       .catch(function () {
         status.textContent = 'Something went wrong and your sign-up was not sent. Please try again or email karlux0027@gmail.com.';
