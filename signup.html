@@ -22,8 +22,8 @@
 <h1>Sign up as a KarLux client</h1>
 <p class="lead">Tell us about your business and we will email you what we need to set up your AI receptionist. You can also choose to get a text message each time your receptionist takes a call or message for you.</p>
 
-<!-- Submissions go to the Zapier Zap "Website sign-up to email (KarLux Call Alerts)". -->
-<form id="signup" class="card" action="https://hooks.zapier.com/hooks/catch/29053901/4mem7xi/" method="post">
+<!-- Submissions go to the Google Apps Script "KarLux Sign-up Handler" (karlux0027@gmail.com). -->
+<form id="signup" class="card" action="https://script.google.com/macros/s/AKfycbxIBVOZTfiOvm__iTl9dS9_nssxw8nvi1AadWsoYMQ4fEQuBhH6ZJucPxNkKTxIQCl8/exec" method="post">
 <label for="name">Full name</label>
 <input id="name" name="name" type="text" autocomplete="name" required>
 
@@ -75,9 +75,13 @@ if (!smsYes) { data.set('sms_consent', 'no'); }
 data.append('source', 'karlux.ai sign-up form');
 data.append('submitted_at', new Date().toISOString());
 status.textContent = 'Sending...';
-fetch(endpoint, { method: 'POST', body: data })
+fetch(endpoint, { method: 'POST', body: new URLSearchParams(data) })
 .then(function (r) {
 if (!r.ok) { throw new Error('HTTP ' + r.status); }
+return r.json();
+})
+.then(function (res) {
+if (!res || !res.ok) { throw new Error('rejected'); }
 var done = document.createElement('div');
 done.className = 'card';
 done.setAttribute('role', 'status');
