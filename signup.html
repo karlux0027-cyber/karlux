@@ -3,92 +3,98 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Call alerts sign-up | KarLux</title>
+<title>Client sign-up | KarLux</title>
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
 <header class="site">
-  <div class="wrap">
-    <a class="brand" href="index.html">KarLux</a>
-    <nav>
-      <a href="signup.html">Call alerts sign-up</a>
-      <a href="privacy.html">Privacy</a>
-      <a href="terms.html">Terms</a>
-    </nav>
-  </div>
+<div class="wrap">
+<a class="brand" href="index.html">KarLux</a>
+<nav>
+<a href="signup.html">Client sign-up</a>
+<a href="privacy.html">Privacy</a>
+<a href="terms.html">Terms</a>
+</nav>
+</div>
 </header>
 
 <main class="wrap">
-  <h1>Sign up for KarLux Call Alerts</h1>
-  <p class="lead">For KarLux clients. Get a text message when your AI receptionist takes a call or message for you.</p>
+<h1>Sign up as a KarLux client</h1>
+<p class="lead">Tell us about your business and we will email you what we need to set up your AI receptionist. You can also choose to get a text message each time your receptionist takes a call or message for you.</p>
 
-  <!-- Submissions go to the Zapier Zap "Website sign-up to email (KarLux Call Alerts)". -->
-  <form id="signup" class="card" action="https://hooks.zapier.com/hooks/catch/29053901/4mem7xi/" method="post">
-    <label for="name">Full name</label>
-    <input id="name" name="name" type="text" autocomplete="name" required>
+<!-- Submissions go to the Zapier Zap "Website sign-up to email (KarLux Call Alerts)". -->
+<form id="signup" class="card" action="https://hooks.zapier.com/hooks/catch/29053901/4mem7xi/" method="post">
+<label for="name">Full name</label>
+<input id="name" name="name" type="text" autocomplete="name" required>
 
-    <label for="business">Business name</label>
-    <input id="business" name="business" type="text" autocomplete="organization" required>
+<label for="business">Business name</label>
+<input id="business" name="business" type="text" autocomplete="organization" required>
 
-    <label for="phone">Mobile phone number</label>
-    <input id="phone" name="phone" type="tel" autocomplete="tel" inputmode="tel" required>
+<label for="phone">Mobile phone number</label>
+<input id="phone" name="phone" type="tel" autocomplete="tel" inputmode="tel" required>
 
-    <label for="email">Email address</label>
-    <input id="email" name="email" type="email" autocomplete="email" required>
+<label for="email">Email address</label>
+<input id="email" name="email" type="email" autocomplete="email" required>
 
-    <label class="check">
-      <input type="checkbox" name="sms_consent" value="yes" required>
-      <span>I agree to receive KarLux Call Alerts text messages at the mobile number above. These are account notifications about calls and messages handled by my KarLux AI receptionist. Message frequency varies with my call volume. Msg &amp; data rates may apply. Reply HELP for help, reply STOP to opt out.</span>
-    </label>
+<p class="small"><strong>Optional:</strong> KarLux Call Alerts text messages. Leave this unchecked if you do not want texts. You can still sign up and use KarLux without them.</p>
+<label class="check">
+<input type="checkbox" id="sms_consent" name="sms_consent" value="yes">
+<span>Yes, send me KarLux Call Alerts text messages at the mobile number above. These are account notifications about calls and messages handled by my KarLux AI receptionist. Message frequency varies with my call volume. Msg &amp; data rates may apply. Reply HELP for help, reply STOP to opt out.</span>
+</label>
 
-    <label class="check">
-      <input type="checkbox" name="terms_consent" value="yes" required>
-      <span>I have read and agree to the <a href="terms.html">Terms and Conditions</a> and <a href="privacy.html">Privacy Policy</a>.</span>
-    </label>
+<label class="check">
+<input type="checkbox" name="terms_consent" value="yes" required>
+<span>I have read and agree to the <a href="terms.html">Terms and Conditions</a> and <a href="privacy.html">Privacy Policy</a>.</span>
+</label>
 
-    <button class="btn" type="submit">Sign up for call alerts</button>
-    <p id="status" class="small" role="status" aria-live="polite"></p>
-  </form>
+<button class="btn" type="submit">Sign up</button>
+<p id="status" class="small" role="status" aria-live="polite"></p>
+</form>
 
-  <p class="small">Consent to receive text messages is not a condition of buying any KarLux service. KarLux does not sell or share your SMS opt-in data or personal information with third parties for marketing purposes.</p>
+<p class="small">Consent to receive text messages is optional and is not a condition of buying any KarLux service. KarLux does not sell or share your SMS opt-in data or personal information with third parties for marketing purposes.</p>
 </main>
 
 <footer class="site">
-  <div class="wrap">
-    <a href="privacy.html">Privacy Policy</a>
-    <a href="terms.html">Terms and Conditions</a>
-    <div style="margin-top:10px">&copy; 2026 KarLux</div>
-  </div>
+<div class="wrap">
+<a href="privacy.html">Privacy Policy</a>
+<a href="terms.html">Terms and Conditions</a>
+<div style="margin-top:10px">&copy; 2026 KarLux</div>
+</div>
 </footer>
 
 <script>
 (function () {
-  var form = document.getElementById('signup');
-  var status = document.getElementById('status');
-  form.addEventListener('submit', function (e) {
-    e.preventDefault();
-    var endpoint = form.getAttribute('action');
-    var data = new FormData(form);
-    data.append('source', 'karlux.ai sign-up form');
-    data.append('submitted_at', new Date().toISOString());
-    status.textContent = 'Sending...';
-    fetch(endpoint, { method: 'POST', body: data })
-      .then(function (r) {
-        if (!r.ok) { throw new Error('HTTP ' + r.status); }
-        var done = document.createElement('div');
-        done.className = 'card';
-        done.setAttribute('role', 'status');
-        done.innerHTML = '<h2 style="margin-top:0">Thank you. You are signed up.</h2>' +
-          '<p>Your sign-up for KarLux Call Alerts was received. You will get a text message when your AI receptionist takes a call or message for you.</p>' +
-          '<p>Message frequency varies. Msg &amp; data rates may apply. Reply STOP to any message to opt out, or HELP for help.</p>' +
-          '<p><a href="index.html">Back to the home page</a></p>';
-        form.parentNode.replaceChild(done, form);
-        done.scrollIntoView({ block: 'center' });
-      })
-      .catch(function () {
-        status.textContent = 'Something went wrong and your sign-up was not sent. Please try again or email karlux0027@gmail.com.';
-      });
-  });
+var form = document.getElementById('signup');
+var status = document.getElementById('status');
+form.addEventListener('submit', function (e) {
+e.preventDefault();
+var endpoint = form.getAttribute('action');
+var data = new FormData(form);
+var smsYes = document.getElementById('sms_consent').checked;
+if (!smsYes) { data.set('sms_consent', 'no'); }
+data.append('source', 'karlux.ai sign-up form');
+data.append('submitted_at', new Date().toISOString());
+status.textContent = 'Sending...';
+fetch(endpoint, { method: 'POST', body: data })
+.then(function (r) {
+if (!r.ok) { throw new Error('HTTP ' + r.status); }
+var done = document.createElement('div');
+done.className = 'card';
+done.setAttribute('role', 'status');
+var html = '<h2 style="margin-top:0">Thank you. You are signed up.</h2>' +
+'<p>We received your sign-up. Watch your email for a short list of what we need to set up your AI receptionist.</p>';
+if (smsYes) {
+html += '<p>You also signed up for KarLux Call Alerts. You will get a text message when your AI receptionist takes a call or message for you. Message frequency varies. Msg &amp; data rates may apply. Reply STOP to any message to opt out, or HELP for help.</p>';
+}
+html += '<p><a href="index.html">Back to the home page</a></p>';
+done.innerHTML = html;
+form.parentNode.replaceChild(done, form);
+done.scrollIntoView({ block: 'center' });
+})
+.catch(function () {
+status.textContent = 'Something went wrong and your sign-up was not sent. Please try again or email karl@karlux.ai.';
+});
+});
 })();
 </script>
 </body>
