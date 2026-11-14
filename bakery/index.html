@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>KarLuX Media | Tiny Workers video for your bakery</title>
+<meta name="description" content="Tiny construction workers build your signature bake. A free 8-second video for your bakery's Instagram, made from one photo.">
+<meta property="og:title" content="Tiny workers, giant bakes. A free video for your bakery.">
+<meta property="og:description" content="Send one photo of your best bake. Get back an 8-second Tiny Workers video for Instagram and TikTok. First one free.">
+<meta property="og:image" content="https://i.ytimg.com/vi/IvJ44yw6B_8/hqdefault.jpg">
+<link rel="icon" href="../media/logo.png">
+<style>
+:root { --bg:#0d0d11; --card:#17171d; --ink:#ffffff; --muted:#a9a9be; --yellow:#ffe600; --line:#2a2a33; }
+* { box-sizing:border-box; }
+html { -webkit-text-size-adjust:100%; }
+body { margin:0; background:var(--bg); color:var(--ink); font:17px/1.6 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif; }
+a { color:var(--yellow); }
+.wrap { max-width:900px; margin:0 auto; padding:0 20px; }
+header { border-bottom:1px solid var(--line); }
+header .wrap { display:flex; align-items:center; gap:12px; padding:14px 20px; }
+header img { width:40px; height:40px; border-radius:50%; }
+header span { font-weight:800; font-size:20px; letter-spacing:.02em; }
+.hero { padding:44px 0 12px; text-align:center; }
+h1 { font-size:clamp(32px,7vw,54px); line-height:1.08; margin:0 0 14px; font-weight:900; }
+h1 em { font-style:normal; color:var(--yellow); }
+.lead { font-size:20px; color:var(--muted); margin:0 auto 28px; max-width:640px; }
+.btn { display:inline-block; background:var(--yellow); color:#0d0d11; border-radius:999px; padding:15px 30px; font-size:18px; font-weight:800; text-decoration:none; }
+.alt { margin-top:14px; font-size:15px; color:var(--muted); }
+.proof { display:inline-block; margin-top:22px; padding:8px 16px; border:1px solid var(--line); border-radius:999px; font-size:15px; color:var(--muted); }
+.proof b { color:var(--ink); }
+.vids { display:grid; grid-template-columns:repeat(3,1fr); gap:16px; margin:40px 0; }
+.vids figure { margin:0; }
+.play { position:relative; display:block; width:100%; aspect-ratio:9/16; border:0; padding:0; border-radius:14px; overflow:hidden; background:#000; cursor:pointer; }
+.play img { width:100%; height:100%; object-fit:cover; display:block; }
+.play::after { content:""; position:absolute; left:50%; top:50%; width:64px; height:64px; margin:-32px 0 0 -32px; border-radius:50%; background:rgba(0,0,0,.55) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M8 5v14l11-7z' fill='%23ffe600'/%3E%3C/svg%3E") center/32px no-repeat; }
+.vids iframe { width:100%; aspect-ratio:9/16; border:0; border-radius:14px; display:block; background:#000; }
+.vids figcaption { font-size:14px; color:var(--muted); text-align:center; margin-top:6px; }
+h2 { font-size:26px; margin:44px 0 12px; }
+.steps { display:grid; grid-template-columns:repeat(3,1fr); gap:16px; }
+.step { background:var(--card); border:1px solid var(--line); border-radius:14px; padding:20px; }
+.step b { display:block; color:var(--yellow); font-size:28px; line-height:1; margin-bottom:8px; }
+.card { background:var(--card); border:1px solid var(--line); border-radius:14px; padding:24px; margin:20px 0; }
+ul { padding-left:20px; }
+li { margin:6px 0; }
+.cta { text-align:center; padding:36px 0 20px; }
+footer { border-top:1px solid var(--line); margin-top:40px; padding:22px 0 40px; font-size:14px; color:var(--muted); }
+@media (max-width:640px) {
+  .vids { grid-template-columns:1fr 1fr; gap:12px; }
+  .steps { grid-template-columns:1fr; }
+}
+</style>
+</head>
+<body>
+<header><div class="wrap"><img src="../media/logo.png" alt=""><span>KarLuX Media</span></div></header>
+
+<main class="wrap">
+<section class="hero">
+<h1>Tiny workers.<br><em>Your</em> giant bakes.</h1>
+<p class="lead">Send me one photo of your best bake. I'll send back an 8-second video of a tiny construction crew building it, made for your Instagram, TikTok and Facebook. The first one is free, and it's yours to keep.</p>
+<a class="btn" href="mailto:karl@karlux.ai?subject=Tiny%20Workers%20video%20for%20my%20bakery&amp;body=Bakery%20name%3A%0AInstagram%20or%20website%3A%0AWhich%20bake%3A%0A%0A(Attach%20one%20photo%20of%20it%20to%20this%20email.)">Get my free video</a>
+<p class="alt">Or message us on <a href="https://www.instagram.com/thehardhatterscrew">Instagram @thehardhatterscrew</a>.</p>
+<p class="proof">One of our Tiny Workers videos passed <b>11,000 views</b> on Instagram in its first two days.</p>
+</section>
+
+<section class="vids" aria-label="Sample videos">
+<figure><button class="play" data-id="IvJ44yw6B_8" aria-label="Play: tiny workers fill a giant jelly donut"><img src="https://i.ytimg.com/vi/IvJ44yw6B_8/hqdefault.jpg" alt="" loading="lazy"></button><figcaption>Jelly donut</figcaption></figure>
+<figure><button class="play" data-id="ozXaaDifiWI" aria-label="Play: tiny workers haul crumbs around a giant cinnamon roll"><img src="https://i.ytimg.com/vi/ozXaaDifiWI/hqdefault.jpg" alt="" loading="lazy"></button><figcaption>Cinnamon roll</figcaption></figure>
+<figure><button class="play" data-id="yWWU4Km7MZc" aria-label="Play: tiny workers build a road on a giant croissant"><img src="https://i.ytimg.com/vi/yWWU4Km7MZc/hqdefault.jpg" alt="" loading="lazy"></button><figcaption>Croissant</figcaption></figure>
+<figure><button class="play" data-id="4Qp9t9k3q68" aria-label="Play: tiny workers spray-paint a giant cupcake pink"><img src="https://i.ytimg.com/vi/4Qp9t9k3q68/hqdefault.jpg" alt="" loading="lazy"></button><figcaption>Cupcake</figcaption></figure>
+<figure><button class="play" data-id="QyUrX6qL8UY" aria-label="Play: tiny workers top a giant cherry cheesecake"><img src="https://i.ytimg.com/vi/QyUrX6qL8UY/hqdefault.jpg" alt="" loading="lazy"></button><figcaption>Cherry cheesecake</figcaption></figure>
+<figure><button class="play" data-id="G3gBWXDz2PY" aria-label="Play: tiny snowplows clear powdered sugar off a giant cake"><img src="https://i.ytimg.com/vi/G3gBWXDz2PY/hqdefault.jpg" alt="" loading="lazy"></button><figcaption>Powdered sugar cake</figcaption></figure>
+</section>
+
+<h2>How it works</h2>
+<div class="steps">
+<div class="step"><b>1</b>Email me one clear photo of the bake you're proudest of, plus your bakery name.</div>
+<div class="step"><b>2</b>I make an 8-second vertical video of tiny workers building, frosting or filling it.</div>
+<div class="step"><b>3</b>You get the file in a day or two. Post it, pin it, run it as an ad. It's yours.</div>
+</div>
+
+<div class="card">
+<h2 style="margin-top:0">Good to know</h2>
+<ul>
+<li>One free video per bakery.</li>
+<li>The video is made with AI, starting from your real photo. I'll always tell you that up front.</li>
+<li>Want one for every holiday, or a short series for your menu? Just ask.</li>
+</ul>
+</div>
+
+<div class="cta">
+<a class="btn" href="mailto:karl@karlux.ai?subject=Tiny%20Workers%20video%20for%20my%20bakery&amp;body=Bakery%20name%3A%0AInstagram%20or%20website%3A%0AWhich%20bake%3A%0A%0A(Attach%20one%20photo%20of%20it%20to%20this%20email.)">Get my free video</a>
+<p class="alt">karl@karlux.ai</p>
+</div>
+</main>
+
+<footer><div class="wrap">KarLuX Media · Karl · PO Box 62, Hackensack, MN 56452 · <a href="/privacy.html">Privacy</a></div></footer>
+
+<script>
+document.querySelectorAll('.play').forEach(function (b) {
+  b.addEventListener('click', function () {
+    var f = document.createElement('iframe');
+    f.src = 'https://www.youtube-nocookie.com/embed/' + b.dataset.id + '?autoplay=1&mute=1&loop=1&playlist=' + b.dataset.id + '&playsinline=1&rel=0';
+    f.title = b.getAttribute('aria-label').replace('Play: ', '');
+    f.allow = 'autoplay; encrypted-media; picture-in-picture';
+    f.allowFullscreen = true;
+    b.replaceWith(f);
+  });
+});
+</script>
+</body>
+</html>
