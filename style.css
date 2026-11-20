@@ -36,3 +36,6 @@ input[type="text"], input[type="tel"], input[type="email"] { width: 100%; paddin
 .notice { border-left: 4px solid var(--accent); background: #eef5fa; padding: 14px 16px; border-radius: 4px; margin: 20px 0; }
 footer.site { border-top: 1px solid var(--line); padding: 24px 0 40px; font-size: 15px; color: var(--muted); }
 footer.site a { margin-right: 16px; }
+
+/* Spam trap field: kept off screen so only bots fill it in */
+.hp { position: absolute; left: -10000px; top: auto; width: 1px; height: 1px; overflow: hidden; }
