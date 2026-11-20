@@ -22,7 +22,6 @@
 <h1>Sign up as a KarLux client</h1>
 <p class="lead">Tell us about your business and we will email you what we need to set up your AI receptionist. You can also choose to get a text message each time your receptionist takes a call or message for you.</p>
 
-<!-- Submissions go to the Google Apps Script "KarLux Sign-up Handler" (karlux0027@gmail.com). -->
 <form id="signup" class="card" action="https://script.google.com/macros/s/AKfycbxIBVOZTfiOvm__iTl9dS9_nssxw8nvi1AadWsoYMQ4fEQuBhH6ZJucPxNkKTxIQCl8/exec" method="post">
 <label for="name">Full name</label>
 <input id="name" name="name" type="text" autocomplete="name" required>
@@ -35,6 +34,12 @@
 
 <label for="email">Email address</label>
 <input id="email" name="email" type="email" autocomplete="email" required>
+
+<!-- Spam trap: hidden from people. Bots that fill it in are ignored. -->
+<div class="hp" aria-hidden="true">
+<label for="website">Leave this empty</label>
+<input id="website" name="website" type="text" tabindex="-1" autocomplete="off">
+</div>
 
 <p class="small"><strong>Optional:</strong> KarLux Call Alerts text messages. Leave this unchecked if you do not want texts. You can still sign up and use KarLux without them.</p>
 <label class="check">
@@ -66,20 +71,30 @@
 (function () {
 var form = document.getElementById('signup');
 var status = document.getElementById('status');
+var openedAt = Date.now();
+var sending = false;
 form.addEventListener('submit', function (e) {
 e.preventDefault();
+if (sending) { return; }
 var endpoint = form.getAttribute('action');
 var data = new FormData(form);
 var smsYes = document.getElementById('sms_consent').checked;
 if (!smsYes) { data.set('sms_consent', 'no'); }
 data.append('source', 'karlux.ai sign-up form');
 data.append('submitted_at', new Date().toISOString());
+data.append('seconds_on_page', String(Math.round((Date.now() - openedAt) / 1000)));
+// Spam check: real people never fill the hidden field, and take more than 3 seconds.
+var looksLikeBot = document.getElementById('website').value !== '' || (Date.now() - openedAt) < 3000;
+sending = true;
 status.textContent = 'Sending...';
-fetch(endpoint, { method: 'POST', body: new URLSearchParams(data) })
+var send = looksLikeBot
+? Promise.resolve({ ok: true })
+: fetch(endpoint, { method: 'POST', body: new URLSearchParams(data) })
 .then(function (r) {
 if (!r.ok) { throw new Error('HTTP ' + r.status); }
 return r.json();
-})
+});
+send
 .then(function (res) {
 if (!res || !res.ok) { throw new Error('rejected'); }
 var done = document.createElement('div');
@@ -96,6 +111,7 @@ form.parentNode.replaceChild(done, form);
 done.scrollIntoView({ block: 'center' });
 })
 .catch(function () {
+sending = false;
 status.textContent = 'Something went wrong and your sign-up was not sent. Please try again or email karl@karlux.ai.';
 });
 });
